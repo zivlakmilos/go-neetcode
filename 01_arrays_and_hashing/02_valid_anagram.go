@@ -5,29 +5,20 @@ func isAnagram(s string, t string) bool {
 		return false
 	}
 
-	chars := make([]int, 32)
-	globalCount := 0
-
-	for i := range chars {
-		chars[i] = 0
-	}
+	chars := make([]int, 26)
 
 	for i := range s {
 		chars[s[i]-'a']++
-		globalCount++
 	}
 
 	for i := range t {
 		chars[t[i]-'a']--
-		globalCount--
-
-		if chars[t[i]-'a'] < 0 {
-			return false
-		}
 	}
 
-	if globalCount > 0 {
-		return false
+	for _, count := range chars {
+		if count != 0 {
+			return false
+		}
 	}
 
 	return true
