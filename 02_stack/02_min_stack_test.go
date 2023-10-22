@@ -1,7 +1,6 @@
 package stack
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -9,11 +8,8 @@ func TestMinStack(t *testing.T) {
 
 	stack := Constructor()
 	stack.Push(-2)
-	fmt.Printf("%v\n", stack.GetMin())
 	stack.Push(0)
-	fmt.Printf("%v\n", stack.GetMin())
 	stack.Push(-3)
-	fmt.Printf("%v\n", stack.GetMin())
 
 	res := stack.GetMin()
 	if res != -3 {
@@ -21,7 +17,6 @@ func TestMinStack(t *testing.T) {
 	}
 
 	stack.Pop()
-	fmt.Printf("%v\n", stack.Top())
 
 	res = stack.Top()
 	if res != 0 {
